@@ -1,0 +1,22 @@
+{
+  "name": "discord-bot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.9.1",
+    "@types/koa": "^2.14.0",
+    "@types/node": "^20.11.16",
+    "discord.js": "^14.14.1",
+    "dotenv": "^16.4.1",
+    "koa": "^2.15.0"
+  }
+}

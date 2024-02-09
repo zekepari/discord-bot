@@ -1,0 +1,30 @@
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Account {
+  id        String  @id @map("_id")
+  isPrimary Boolean @default(false)
+  ownerId   String
+
+  @@index([ownerId])
+}
+
+model Server {
+  id              String   @id @map("_id")
+  name            String
+  ownerId         String
+  imageUrl        String?
+  groupId         String?
+  inviteChannelId String?
+  parentServerId  String?
+  parentServer    Server?  @relation("ParentChild", fields: [parentServerId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  childServers    Server[] @relation("ParentChild")
+
+  @@index([ownerId])
+}
